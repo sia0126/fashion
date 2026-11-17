@@ -1,0 +1,351 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap');
+
+:root {
+  --accent-color:#AE0009;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+li { list-style: none; }
+html { font-size: 62.5%; }  /* 10px을 기본 폰트크기로 */
+
+body { 
+  font-family: "Roboto", sans-serif; 
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #5a5a5a;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: "Oswald", sans-serif; 
+}
+h1 { 
+  font-size: 6.4rem;
+  text-transform: uppercase;
+}
+h2 { 
+  font-size: 3.8rem;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+h3 {  
+  font-size: 2.2rem;
+}
+
+h4,h5 { 
+  font-family: "Libre Caslon Display", serif; 
+}
+h4 {
+  font-size: 1.8rem;
+}
+h5 {
+  font-size: 1.2rem;
+}
+
+a { 
+  color:inherit;
+  text-decoration: none; 
+}
+a:hover {
+  color: var(--accent-color);
+}
+button {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  padding: 1rem 3rem;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: var(--accent-color);
+  color: white;
+}
+.pc { display: none; }
+section { padding:8rem 10vw; text-align: center; }
+
+
+/************** mobile **************/
+
+#header_wrap { 
+  position: fixed; height: 8rem; width: 100%; 
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0) );
+  backdrop-filter: blur(5px);
+  padding: 0 5vw; z-index: 100;
+}
+header { 
+  height: 100%; width: 100%; 
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo { z-index: 100; }
+.logo a { display: block; width: 20rem;  }
+.logo a img { width: 100%; }
+
+#openBtn { border:1px solid red; 
+  position: relative;
+  width: 3rem; height: 3rem;
+  cursor: pointer;
+  z-index: 100;
+}
+#openBtn span { 
+  position: absolute;
+  width: 100%; height: 0.2rem;
+  background: white;
+  text-indent: -9999px;
+  transition: 0.3s ease-in;
+}
+#openBtn span:nth-child(1) { top:0.5rem; } 
+#openBtn span:nth-child(2) { top: calc(50% - 1px)} 
+#openBtn span:nth-child(3) { bottom:0.5rem; } 
+
+/* 버튼 X */
+.mOpen #openBtn span:nth-child(1) { 
+  top: calc(50% - 1px); transform: rotate(45deg); } 
+.mOpen #openBtn span:nth-child(2) { opacity: 0; } 
+.mOpen #openBtn span:nth-child(3) { 
+  bottom: calc(50% - 1px); transform: rotate(-45deg); } 
+
+
+header nav { 
+  position: fixed; left: 100%; top:0;
+  width: 100%; height: 100dvh;
+  /* dvh - 모바일에서 주소창, 툴바등 UI요소를 인식해서 실시간으로 조절해주는 동적 뷰포트 높이 */
+  background: rgba(5, 3, 24, 0.8); color: white;
+  display: flex; justify-content: center; align-items: center;
+  z-index: 20; transition: 0.3s ease-in;
+}
+
+.mOpen header nav { left: 0; }
+
+header nav li { font-size: 2rem; line-height: 3; text-align: center; }
+
+
+/* main_visual */
+.main_visual { 
+  position: relative;
+  height: 60rem;  color: #fff;
+  background: url('../images/main_visual.jpg') top left / cover;
+  display: flex; justify-content: center; align-items: center;
+}
+.main_visual .txt { text-align: center; }
+.main_visual .txt p { padding: 3.2rem; opacity: 0.6;}
+
+
+/* instructors */
+#instructors { padding: 16rem 10vw 8rem; }
+#instructors h2 { margin-bottom: 5rem; }
+#instructors .list { display: flex; gap:3rem; justify-content: center; }
+#instructors .list li { width: 17rem; }
+#instructors .list li img { width: 15rem; height: 15rem; border-radius: 50%; }
+#instructors .list li p { padding-bottom: 2rem; }
+#instructors .list li h4 { margin-bottom: 1rem; }
+#instructors .list li span { font-size: 1.2rem; color: #acacac;}
+
+#instructors .list li:nth-child(n+3) { display: none; }
+
+
+/* build */
+#build { height: 50rem; margin: 8rem 0; padding: 0;
+background: url('../images/twin.jpg') center / cover; color:#fff; }
+#build > div { 
+  width: 50%; height: 100%; background: rgba(0,0,0,0.6);
+  padding: 8rem 10%;
+  float: right; 
+  cursor: pointer; transition: 0.8s;
+}
+#build > div:hover { background: rgba(0,0,0,0.9);}
+#build  h2 { margin-bottom: 4rem; }
+#build button { margin-top: 3rem; }
+#build p { color: #929292 }
+
+
+.title p  { padding: 0 3.2rem; line-height: 1.4; } 
+
+/* started, yourself */
+
+#started .imgs, #yourself .imgs { margin-top: 4rem; }
+
+#started article { height: 40rem;   
+  background: center / cover no-repeat;
+}
+
+#started .imgs > :nth-child(1) { 
+  background-image:url('../images/imgThree1.jpg'); }
+#started .imgs > :nth-child(2) { 
+  background-image:url('../images/imgThree2.jpg'); }
+#started .imgs > :nth-child(3) { 
+  background-image:url('../images/imgThree3.jpg'); }
+
+#started article div { 
+  width: 100%; height: 100%;
+  color:white; background: rgba(0,0,0,0.2);
+  display: flex; flex-direction: column;
+  justify-content: space-between; align-items: center;
+  padding: 4rem 0; transition: 0.8s ease-in; cursor: pointer;
+} 
+#started article div:hover { 
+  background: rgba(0,0,0,0.6);}
+
+
+#yourself article { height: 20rem;   
+  background: center / cover no-repeat;
+}
+#yourself .imgs > :nth-child(1) { 
+  background-image:url('../images/imgFourth1.jpg'); }
+#yourself .imgs > :nth-child(2) { 
+  background-image:url('../images/imgFourth2.jpg'); }
+#yourself .imgs > :nth-child(3) { 
+  background-image:url('../images/imgFourth3.jpg'); }
+#yourself .imgs > :nth-child(4) { 
+  background-image:url('../images/imgFourth4.jpg'); }
+
+
+#yourself article div { 
+  width: 100%; height: 100%;
+  color:white; background: rgba(0,0,0,0.2);
+  display: flex; justify-content: center; align-items: center;
+  padding: 4rem 0; transition: 0.8s ease-in; cursor: pointer;
+}  
+#yourself article div:hover { background: rgba(0,0,0,0.6);}
+#yourself button { background: transparent; color:white; }
+#yourself button:hover { background: var(--accent-color); }
+
+
+/* curriculum */
+#curriculum { padding:8rem 10vw 5rem; } 
+.curriculum_wrap { margin-top: 4rem; text-align: left;}
+#curriculum figure img { max-width: 80%; margin-bottom: 1rem;}
+
+#curriculum article { font-size: 1.8rem; margin-bottom: 3rem; line-height: 1.4; }
+
+
+/* event */
+#event { display: none; background: #eee; }
+#event table { max-width: 800px; margin: auto; 
+  border-collapse: collapse; }
+#event table tr:hover { background: white; } 
+#event table td, th { border-bottom: 1px solid #adadad; padding: 1.6rem ; }
+#event table tr:first-child { background: white; }
+#event table tr > td:nth-child(2) { font-size: 1.2rem; opacity: 0.6;;}
+#event table tr > td:nth-child(3) { text-align: left; }
+
+
+/* info */
+#info { 
+  position: relative;
+  background: url('../images/FSF-footer-landing-page-image.webp') center / cover; color: white; }
+.overlay { 
+  position: absolute; background: rgba(0,0,0,0.5); 
+  inset: 0;
+  /* inset은 부모 요소기준으로 position 설정할때 top,left,right,bottom을 한꺼번에 지정하는 속성 */
+}
+#info .title { position: relative; }
+.info_wrap { position: relative;margin-top: 3rem; } 
+#info input { height: 44px; display: block; width: 100%; border:none; }
+#info input[type="text"] { padding-left: 1rem; background: white; border-radius: .6rem .6rem 0 0; outline: none; }
+#info input[type="submit"] { font-size: 1.8rem; background: #F9DB4B; border-radius: 0 0 .6rem .6rem;}
+
+/* footer */
+footer { background: #020202; padding: 60px 0; font-size: 25px; text-align: center; color: white; }
+
+.social span { margin: 0 0.5em;}
+
+.social svg { fill:white; width: 1em; }
+.social span:first-child svg { width: 0.7em; }
+
+.social a:hover svg { fill:#F9DB4B; }
+
+.footer_txt { font-size: 0.7em; padding: 2em 0;}
+.footer_txt a:hover { color:#F9DB4B; }
+.footer_txt .copy { font-size: 0.9em; padding-top: 1em; }
+.footer_logo img { width: 20rem; padding-top: 1em;}
+
+/* help */
+#help { 
+  position: fixed; bottom: 3rem; right: 3rem; 
+  display: flex; flex-direction: column; align-items: flex-end;
+}
+
+.help_txt_container { 
+  cursor: pointer;
+  display: flex; flex-direction: column; align-items: flex-end;
+}
+.text_close { 
+  width: 2rem; height: 2rem; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: #F9DB4B; margin-bottom: 0.3rem; }
+.help_txt { 
+  padding: 1.2rem 1.5rem; border-radius: 0.8rem; 
+  background: #F9DB4B; margin-bottom: 1.5rem; 
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.help_icon { width: 6rem; height: 6rem; }
+.help_icon img { width: 100%; filter:grayscale(1) opacity(0.6); cursor: pointer; }
+
+
+/**************** tablet ****************/
+@media screen and ( min-width:768px) {
+  #instructors .list li:nth-child(3) { display:block; }
+  
+  #event { display: block; }
+
+  .curriculum_wrap { 
+    display: grid;    
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 4rem;
+  }
+  #curriculum article { margin-bottom: 4rem; } 
+
+  #info form { display: flex; }
+  #info input { width: auto;  }
+  #info input[type="text"] { flex:2; border-radius: .6rem  0 0 .6rem; }
+  #info input[type="submit"] { flex:1; border-radius: 0 .6rem .6rem 0;}
+
+}
+
+/**************** desktop1 ****************/
+@media screen and ( min-width:1024px) {
+  .pc { display: block; }
+  
+  #openBtn { display: none; }
+  header nav { 
+  position: relative; left: auto; top:auto;
+  width: auto; height: auto;
+  background: none; 
+  display: block;   
+  }
+  header nav ul { display: flex; }
+  header nav li { font-size: 1.6rem; line-height: 1; padding: 0 10px; }
+
+  .main_visual { height: 70rem; }
+  .main_visual p { width: 80rem; margin: auto; }
+
+  #instructors .list li:nth-child(4) { display:block; }
+
+  #started .imgs { display: flex; width: 100%; }
+  #started article { flex: 1; height: 60rem; }
+
+  #yourself .imgs { display: flex; flex-wrap: wrap; }
+  #yourself article { width: 50%; height: 40rem; }
+
+  .curriculum_wrap {    
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+
+}
+
+/**************** desktop2 ****************/
+@media screen and ( min-width:1400px) {
+  .main_visual { height: 80rem; }
+    
+  #instructors .list li:nth-child(5) { display:block; }
+
+}
